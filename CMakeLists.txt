@@ -26,9 +26,9 @@ if(COMPILER_PATH AND COMPILER_PREFIX)
 endif()
 
 # Set compiler flags (adjust as needed)
-set(CMAKE_C_FLAGS "-march=rv32emc_zicsr -mabi=ilp32e -O2 -ffunction-sections -fdata-sections -Wall -nostdlib -nostartfiles")
+set(CMAKE_C_FLAGS "-march=rv32ec_zicsr -mabi=ilp32e -O2 -ffunction-sections -fdata-sections -Wall -nostdlib -nostartfiles")
 set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -fno-exceptions -fno-rtti -nostartfiles")
-set(CMAKE_ASM_FLAGS "-march=rv32emc_zicsr -mabi=ilp32e -nostartfiles")
+set(CMAKE_ASM_FLAGS "-march=rv32ec_zicsr -mabi=ilp32e -nostartfiles")
 
 # Include directories for sdk and user source
 include_directories(${SDK_HEADERS} sdk/inc src)
@@ -50,7 +50,7 @@ file(GLOB SRC_ASM_SOURCES "src/*.S")
 add_executable(${PROJECT} ${SRC_C_SOURCES} ${SRC_CPP_SOURCES} ${SRC_ASM_SOURCES})
 
 # Link sdk static library
-target_link_libraries(${PROJECT} sdk)
+target_link_libraries(${PROJECT} sdk c gcc)
 
 # Linker script
 set(LINKER_SCRIPT "${CMAKE_SOURCE_DIR}/sdk/link.ld")
