@@ -1,2 +1,4 @@
 ch32v003
 build
+.cache
+compile_commands.json
