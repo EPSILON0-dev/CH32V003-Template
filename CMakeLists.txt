@@ -5,12 +5,6 @@ set(PROJECT template)
 set(CMAKE_EXPORT_COMPILE_COMMANDS true)
 project(${PROJECT} C CXX ASM)
 
-add_compile_definitions(USE_XTAL_PINS_AS_GPIO)
-add_compile_definitions(UART_BOOT_RECEIVE_SERVICE)
-add_compile_definitions(UART_COMMANDS_RECEIVE_SERVICE)
-add_compile_definitions(USE_PC0_AS_BOOT_SOURCE)
-add_compile_definitions(FLASH_CONFIG_SECTION)
-
 # Configurable compiler path and prefix
 set(COMPILER_PATH "" CACHE PATH "Path to the compiler binaries")
 set(COMPILER_PREFIX "" CACHE STRING "Compiler prefix (e.g. riscv-none-embed-)")
