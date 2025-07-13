@@ -157,8 +157,7 @@ handle_reset:
     ori t0, t0, 3
     csrw mtvec, t0
   
-    /* HACK */
-    /* Call the init array functions 
+    /* Call the init array functions */
  	la t0, __init_array_start
  	la t1, __init_array_end
 1:
@@ -167,7 +166,6 @@ handle_reset:
     addi t0, t0, 4
     j 1b
 2:
-*/
 
     /* Call system init and the main function */
     jal SystemInit
